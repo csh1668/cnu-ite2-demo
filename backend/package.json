@@ -1,0 +1,19 @@
+{
+  "name": "ite2-backend",
+  "version": "1.0.0",
+  "description": "Backend for ITE2 demo - Simple board API",
+  "type": "module",
+  "scripts": {
+    "dev": "bun run --hot src/index.ts",
+    "start": "bun run src/index.ts"
+  },
+  "dependencies": {
+    "elysia": "^1.1.22",
+    "@elysiajs/cors": "^1.1.1"
+  },
+  "devDependencies": {
+    "bun-types": "latest"
+  }
+}
+
+
