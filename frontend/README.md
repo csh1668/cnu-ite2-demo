@@ -59,7 +59,7 @@ git commit -m "feat: 게시판 기능 추가"
 git push origin main
 ```
 
-배포 주소: `https://csh1668.github.io/ite2`
+배포 주소: `https://csh1668.github.io/cnu-ite2-demo/`
 
 ## 주요 기능
 

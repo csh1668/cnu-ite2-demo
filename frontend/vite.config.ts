@@ -5,7 +5,7 @@ import path from 'path'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/ite2/',
+  base: '/cnu-ite2-demo/',
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
