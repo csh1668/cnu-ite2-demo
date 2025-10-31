@@ -5,7 +5,7 @@ import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog'
-import { PlusCircle, Trash2, Eye, Github } from 'lucide-react'
+import { PlusCircle, Trash2, Eye } from 'lucide-react'
 
 // API URL - 환경변수로 관리하거나 배포 후 실제 Vercel URL로 변경
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000'
