@@ -17,11 +17,25 @@ async function main() {
 
   // Bundle a single ESM file for Node runtime (not --target bun)
   console.log("📦 Bundling with Bun for Node.js runtime...");
+  
+  // 먼저 임시 파일로 번들링
+  const tempBundle = path.join(funcDir, "app.js");
   await $`bun build src/index.ts \
     --target=node \
     --format=esm \
     --minify-syntax --minify-whitespace \
-    --outfile ${entryJs}`;
+    --outfile ${tempBundle}`;
+
+  // Vercel 서버리스 함수 래퍼 추가
+  const wrapperCode = `
+import app from './app.js';
+
+export default async function handler(request) {
+  return app.fetch(request);
+}
+`;
+  
+  await fs.writeFile(entryJs, wrapperCode);
 
   // Make Node treat index.js as ESM inside the function mount
   await fs.writeFile(

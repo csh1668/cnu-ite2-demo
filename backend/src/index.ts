@@ -207,7 +207,4 @@ if (import.meta.main) {
   );
 }
 
-// Vercel 서버리스 함수용 - Web Standard fetch 핸들러
-// export default app.fetch.bind(app);
-
 export default app;
