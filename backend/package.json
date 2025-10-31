@@ -4,8 +4,7 @@
   "description": "Backend for ITE2 demo - Simple board API",
   "type": "module",
   "scripts": {
-    "dev": "bun run --hot src/index.ts",
-    "build": "tsdown src/index.ts -d api --dts"
+    "dev": "bun run --hot src/index.ts"
   },
   "dependencies": {
     "elysia": "^1.1.22",
@@ -13,8 +12,7 @@
   },
   "devDependencies": {
     "bun-types": "latest",
-    "typescript": "^5.6.0",
-    "tsdown": "^0.15.12"
+    "typescript": "^5.6.0"
   }
 }
 
