@@ -44,13 +44,27 @@ async function main() {
     )
   );
 
-  // Routes: static first, then all to the function
+  // Routes: static first, then all to the function with CORS headers
   await fs.writeFile(
     path.join(outDir, "config.json"),
     JSON.stringify(
       {
         version: 3,
-        routes: [{ handle: "filesystem" }, { src: "/(.*)", dest: "/index" }],
+        routes: [
+          { 
+            handle: "filesystem" 
+          },
+          {
+            src: "/(.*)",
+            dest: "/index",
+            headers: {
+              "Access-Control-Allow-Origin": "*",
+              "Access-Control-Allow-Methods": "GET, POST, DELETE, OPTIONS",
+              "Access-Control-Allow-Headers": "Content-Type, Authorization",
+              "Access-Control-Max-Age": "86400"
+            }
+          }
+        ]
       },
       null,
       2

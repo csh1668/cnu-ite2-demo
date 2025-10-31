@@ -45,9 +45,20 @@ const app = new Elysia()
   .use(
     cors({
       origin: true, // 모든 origin 허용 (데모용)
-      methods: ['GET', 'POST', 'DELETE'],
+      methods: ['GET', 'POST', 'DELETE', 'OPTIONS'],
+      allowedHeaders: ['Content-Type', 'Authorization'],
+      credentials: true,
     })
   )
+  // OPTIONS 프리플라이트 요청 처리
+  .options('/*', ({ set }) => {
+    set.status = 200;
+    set.headers['Access-Control-Allow-Origin'] = '*';
+    set.headers['Access-Control-Allow-Methods'] = 'GET, POST, DELETE, OPTIONS';
+    set.headers['Access-Control-Allow-Headers'] = 'Content-Type, Authorization';
+    set.headers['Access-Control-Max-Age'] = '86400';
+    return '';
+  })
   // 게시글 목록 조회
   .get('/api/posts', () => {
     return {
@@ -197,6 +208,6 @@ if (import.meta.main) {
 }
 
 // Vercel 서버리스 함수용 - Web Standard fetch 핸들러
-export default app.fetch.bind(app);
+// export default app.fetch.bind(app);
 
-
+export default app;
