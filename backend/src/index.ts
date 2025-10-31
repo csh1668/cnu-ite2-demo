@@ -186,12 +186,15 @@ const app = new Elysia()
         'DELETE /api/comments/:id': '댓글 삭제',
       },
     };
-  })
-  .listen(process.env.PORT || 3000);
+  });
 
-console.log(
-  `🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`
-);
+// 로컬 개발용
+if (import.meta.main) {
+  app.listen(process.env.PORT || 3000);
+  console.log(
+    `🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`
+  );
+}
 
 export default app;
 

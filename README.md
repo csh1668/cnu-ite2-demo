@@ -29,10 +29,10 @@ cnu-ite2-demo/
 - **CI/CD**: GitHub Actions
 
 ### 백엔드
-- **Runtime**: Bun
 - **Framework**: Elysia.js
+- **Runtime**: Node.js
 - **Storage**: 메모리 (데모용)
-- **배포**: Vercel
+- **배포**: Vercel (서버리스)
 
 ## 주요 기능
 
@@ -53,11 +53,12 @@ cnu-ite2-demo/
 4. 프로젝트 설정:
    - **Root Directory**: `backend`
    - **Framework Preset**: Other
-   - **Build Command**: `bun install`
-   - **Install Command**: `bun install`
+   - Vercel이 `vercel.json`의 설정을 자동 인식
 5. Deploy 클릭
 
 배포 후 URL을 복사하세요 (예: `https://your-backend.vercel.app`)
+
+**동작 방식**: Bun Build Output API를 사용하여 Node.js 22.x 서버리스 함수로 배포됩니다.
 
 ### 2. 프론트엔드 배포 (GitHub Pages)
 
@@ -81,6 +82,13 @@ git push origin main
 
 ### 백엔드
 
+먼저 [Bun을 설치](https://bun.sh)하세요:
+```bash
+# Windows
+powershell -c "irm bun.sh/install.ps1|iex"
+```
+
+그 다음:
 ```bash
 cd backend
 bun install
